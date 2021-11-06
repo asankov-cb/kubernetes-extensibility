@@ -32,3 +32,29 @@ rules:
   - get
   - patch
   - update
+- apiGroups:
+  - istacon.org
+  resources:
+  - speakers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - istacon.org
+  resources:
+  - speakers/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - istacon.org
+  resources:
+  - speakers/status
+  verbs:
+  - get
+  - patch
+  - update

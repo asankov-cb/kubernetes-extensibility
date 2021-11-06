@@ -1,0 +1,24 @@
+# permissions for end users to edit speakers.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: speaker-editor-role
+rules:
+- apiGroups:
+  - istacon.org
+  resources:
+  - speakers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - istacon.org
+  resources:
+  - speakers/status
+  verbs:
+  - get
