@@ -1,0 +1,6 @@
+apiVersion: istacon.org/v1
+kind: ConferenceTalk
+metadata:
+  name: conferencetalk-sample
+spec:
+  # TODO(user): Add fields here

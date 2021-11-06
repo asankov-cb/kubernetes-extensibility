@@ -1,0 +1,20 @@
+# permissions for end users to view conferencetalks.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: conferencetalk-viewer-role
+rules:
+- apiGroups:
+  - istacon.org
+  resources:
+  - conferencetalks
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - istacon.org
+  resources:
+  - conferencetalks/status
+  verbs:
+  - get

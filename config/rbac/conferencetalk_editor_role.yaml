@@ -1,0 +1,24 @@
+# permissions for end users to edit conferencetalks.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: conferencetalk-editor-role
+rules:
+- apiGroups:
+  - istacon.org
+  resources:
+  - conferencetalks
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - istacon.org
+  resources:
+  - conferencetalks/status
+  verbs:
+  - get
