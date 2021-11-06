@@ -1,6 +1,7 @@
 apiVersion: istacon.org/v1
 kind: Speaker
 metadata:
-  name: speaker-sample
+  name: anton-sankov
 spec:
-  # TODO(user): Add fields here
+  name: Anton Sankov
+  bio: Anton Sankov is a Member of Technical Staff at VMware Carbon Black
