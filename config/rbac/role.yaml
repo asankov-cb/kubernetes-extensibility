@@ -1,0 +1,34 @@
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - istacon.org
+  resources:
+  - conferencetalks
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - istacon.org
+  resources:
+  - conferencetalks/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - istacon.org
+  resources:
+  - conferencetalks/status
+  verbs:
+  - get
+  - patch
+  - update

@@ -28,8 +28,12 @@ type ConferenceTalkSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	// Foo is an example field of ConferenceTalk. Edit conferencetalk_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	// Title is the title of the Conference Talk
+	Title string `json:"title,omitempty"`
+	// Summary is the summary of the Conference Talk
+	Summary string `json:"summary,omitempty"`
+	// SpeakerID is the ID of the Speaker of the Conference Talk
+	SpeakerID string `json:"speakerId,omitempty"`
 }
 
 // ConferenceTalkStatus defines the observed state of ConferenceTalk
