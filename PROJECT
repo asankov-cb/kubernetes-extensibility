@@ -1,0 +1,6 @@
+domain: org
+layout:
+- go.kubebuilder.io/v3
+projectName: k8s-ext-3
+repo: github.com/asankov-cb/kubernetes-extensibility
+version: "3"
