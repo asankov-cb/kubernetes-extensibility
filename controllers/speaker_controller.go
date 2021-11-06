@@ -39,17 +39,27 @@ type SpeakerReconciler struct {
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.
-// TODO(user): Modify the Reconcile function to compare the state specified by
-// the Speaker object against the actual cluster state, and then
-// perform operations to make the cluster state reflect the state specified by
-// the user.
 //
 // For more details, check Reconcile and its Result here:
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.10.0/pkg/reconcile
 func (r *SpeakerReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
-	_ = log.FromContext(ctx)
+	// once we are in this method the Speaker object is already created in the database
 
-	// TODO(user): your logic here
+	log := log.FromContext(ctx)
+
+	// even though the object is already created, we do not get it as an argument.
+	// instead we get its namespace and name(which Kubernetes uses to identify uniquely, so basically an id)
+	// and we can use that info to fetch it from the database
+	speaker := istaconv1.Speaker{}
+	if err := r.Get(ctx, req.NamespacedName, &speaker); err != nil {
+		log.Error(err, "error while fetching Speaker for database")
+		// returning an error here, means that Kubernetes will requeue that request and this logic will be retried
+		return ctrl.Result{}, err
+	}
+
+	log.Info("Created Speaker", "id", req.Name, "name", speaker.Spec.Name)
+
+	// once we have the Speaker here we can use it to run some domain logic
 
 	return ctrl.Result{}, nil
 }
