@@ -24,10 +24,6 @@ spec:
         - name: webhook-tls-certs
           mountPath: /run/secrets/tls
           readOnly: true
-        env:
-        # TODO: remove
-          - name: GODEBUG
-            value: x509ignoreCN=0
       volumes:
       - name: webhook-tls-certs
         secret:
