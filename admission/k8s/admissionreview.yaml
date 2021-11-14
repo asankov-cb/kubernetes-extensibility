@@ -1,0 +1,23 @@
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: conference-talk-validation.istacon.org
+webhooks:
+- name: conference-talk-validation.istacon.org
+  clientConfig:
+    service:
+      namespace: default
+      name: admission-controller
+      port: 8080
+    caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUMyakNDQWNJQ0NRREFkdXdvWCtaSXlEQU5CZ2txaGtpRzl3MEJBUXNGQURBdk1TMHdLd1lEVlFRRERDUkIKWkcxcGMzTnBiMjRnUTI5dWRISnZiR3hsY2lCWFpXSm9iMjlySUVSbGJXOGdRMEV3SGhjTk1qRXhNVEV6TWpNeApNREkzV2hjTk1qRXhNakV6TWpNeE1ESTNXakF2TVMwd0t3WURWUVFERENSQlpHMXBjM05wYjI0Z1EyOXVkSEp2CmJHeGxjaUJYWldKb2IyOXJJRVJsYlc4Z1EwRXdnZ0VpTUEwR0NTcUdTSWIzRFFFQkFRVUFBNElCRHdBd2dnRUsKQW9JQkFRRElWR2xwMjVZZEhqbzAxNFM5S1VKdFhkaGJQQWxOY2JUQ0FCTWJXYmI1NytReWhiWEtPYUNGN1VtcwpVVUdPZkdHL3JDdWlGOXp1blVFa0lxYUFWbWVTYU1rRjZVNk5lWFAvVko5b1NEdGVUT1AxUURtbWk5c1lYZlVHCko2YWovWDFmOHA5ajRTWkZYSXM0bTVoYldEOGs5Wi84UDFNZmk4YmZpdzBoKzBpWnFheG9TZmUzZXpkaU9iVmcKZDR4NVpxSVM2eTU0d3REVG5kWDhkc2tDM1ZNOUowMlBoRUFidnpQby9Sdi92OG9LcEFXRElTTHhjVklzYkU2YQpodHFXNnhyK0p2MjJ5QTl3ODRJLzExWERCODN1WUFmTDNjazN4c3Y0QnRKdXRGeGs0M3hDTnNwSFkzNVZUTDRuCmNBVXo5NTZsVU95bE50UmtaN2ZJbVNSRW9jR2ZBZ01CQUFFd0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFCNXgKN3RjNzVWdHRhRktaY2NsWXA0Z3dSSHRTOGtWUklUQ3J1T0pJRjZpUzA1R282UGtwczhrU3dqNE5DK0N5SjAvcQpPcytMVEh4cGRwZ0ZBU2hSam9kRTNVc3pRdS9PMUZ4c0tlNU02UHhBUjRhQjNLMGJ4bGlxTU9rSTJGZy9NU25kCi8yenFtTlZXdGI5NTd2UE92b2xJZzhLeFRuZkJMYWtjNWdpWlJVNCtpclkrZnBLMG45bC9qNTEva2I0U1NBUGsKZ2hRR3ZtdGYwd3U1cEVTV2JuOFJEbXJvT3lCNnlMM3Q1VkFUakk3U0l3dklCTS83aUFTTyt6VUVVWDhoVW5LOApxTTcvTWdkWVFZZXhoWlhRbEdzVFgxd0krbGtzczJNWGN1ajhKTldyLzc2ZjA3MnhYNHc3bmpEYk5qcCszaDJnCkRkYWlVeG1RNnowY01jTUQ1SG89Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+  rules:
+  - apiGroups:
+    - "istacon.org" # validate only resource of the istacon.org API group
+    apiVersions:
+    - "v1" # validate only resource of the v1 API version
+    operations:  ["CREATE", "UPDATE"] # validate only CREATE and UPDATE operations
+    resources:   ["conferencetalks"] # validate only ConferenceTalks resources
+    scope:       "Namespaced"
+  admissionReviewVersions: ["v1", "v1beta1"]
+  sideEffects: None
+  timeoutSeconds: 5
