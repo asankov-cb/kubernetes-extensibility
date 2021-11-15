@@ -1,7 +1,7 @@
 domain: org
 layout:
 - go.kubebuilder.io/v3
-projectName: k8s-ext-3
+projectName: kubernetes-extensibility
 repo: github.com/asankov-cb/kubernetes-extensibility
 resources:
 - api:

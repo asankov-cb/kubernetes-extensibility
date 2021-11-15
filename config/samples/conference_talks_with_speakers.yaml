@@ -1,0 +1,38 @@
+apiVersion: istacon.org/v1
+kind: Speaker
+metadata:
+  name: anton-sankov
+spec:
+  name: Anton Sankov
+  bio: Anton Sankov is a Member of Technical Staff at VMware Carbon Black
+---
+apiVersion: istacon.org/v1
+kind: ConferenceTalk
+metadata:
+  name: kubernetes-extensibility
+spec:
+  title: "Next phases of K8S: From system management towards a platform to build applications and services"
+  summary: |
+    This talk will present Kubernetes not only as a workload orchestration environment,
+    but as a platform for hosting and serving applications and services itself.
+  speakerId: anton-sankov
+---
+apiVersion: istacon.org/v1
+kind: Speaker
+metadata:
+  name: uncle-bob
+spec:
+  name: Robert Martin
+  bio: Robert C. Martin (Uncle Bob) has been a programmer since 1970.
+---
+apiVersion: istacon.org/v1
+kind: ConferenceTalk
+metadata:
+  name:  demanding-technical-excellence-and-professionalism
+spec:
+  title:  Demanding Technical Excellence and Professionalism
+  summary: |
+    The vast majority of software developers have yet to learn the practices and disciplines
+    that constitute professional behavior. That’s because those practices have only just
+    recently been defined
+  speakerId: uncle-bob

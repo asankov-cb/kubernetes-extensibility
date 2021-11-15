@@ -1,7 +1,0 @@
-apiVersion: istacon.org/v1
-kind: Speaker
-metadata:
-  name: anton-sankov
-spec:
-  name: Anton Sankov
-  bio: Anton Sankov is a Member of Technical Staff at VMware Carbon Black
