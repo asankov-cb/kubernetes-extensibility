@@ -27,5 +27,5 @@ spec:
       volumes:
       - name: webhook-tls-certs
         secret:
-          secretName: webhook-server-tls
+          secretName: admission-controller-certificates
 
